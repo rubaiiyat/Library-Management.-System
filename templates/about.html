@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="py-20 text-center max-w-3xl mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold">
+        About Our Library 📚
+    </h1>
+    <p class="mt-6 text-base-content/70">
+        We aim to make reading simple, accessible, and enjoyable for everyone.
+    </p>
+</div>
+
+<!-- Story Section -->
+<div class="max-w-6xl mx-auto px-6 py-10 grid lg:grid-cols-2 gap-10 items-center">
+
+    <img src="https://images.pexels.com/photos/3747507/pexels-photo-3747507.jpeg"
+         class="w-full h-[350px] object-cover rounded-2xl shadow-xl" />
+
+    <div>
+        <h2 class="text-3xl font-bold mb-4">Our Story</h2>
+        <p class="text-base-content/70 mb-4">
+            Our Library Management System was built to simplify how people interact with books.
+            From discovering new titles to managing borrowing, everything is designed to be smooth and user-friendly.
+        </p>
+        <p class="text-base-content/70">
+            Whether you're a student, reader, or admin, our goal is to give you the best experience possible.
+        </p>
+    </div>
+
+</div>
+
+<!-- Features -->
+<div class="bg-base-200 py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 class="text-3xl font-bold mb-10">What We Offer</h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div class="card bg-base-100 p-6 shadow-lg">
+                <h3 class="text-xl font-semibold mb-2">📚 Huge Collection</h3>
+                <p class="text-base-content/70 text-sm">
+                    Explore a wide variety of books across different categories.
+                </p>
+            </div>
+
+            <div class="card bg-base-100 p-6 shadow-lg">
+                <h3 class="text-xl font-semibold mb-2">⚡ Easy Management</h3>
+                <p class="text-base-content/70 text-sm">
+                    Borrow, return, and track books with ease.
+                </p>
+            </div>
+
+            <div class="card bg-base-100 p-6 shadow-lg">
+                <h3 class="text-xl font-semibold mb-2">🌙 Dark Experience</h3>
+                <p class="text-base-content/70 text-sm">
+                    Enjoy a comfortable dark-mode interface anytime.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="py-20 text-center">
+    <h2 class="text-3xl font-bold mb-4">
+        Start Exploring Today
+    </h2>
+    <p class="text-base-content/70 mb-6">
+        Discover your next favorite book.
+    </p>
+    <a href="#" class="btn btn-primary">Browse Books</a>
+</div>
+
+{% endblock %}

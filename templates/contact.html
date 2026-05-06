@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="py-24 text-center max-w-3xl mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold">
+        Get in Touch 📩
+    </h1>
+    <p class="mt-6 text-base-content/70">
+        We’d love to hear from you. Reach out anytime — we’re here to help.
+    </p>
+</div>
+
+<!-- Contact Info Cards -->
+<div class="max-w-5xl mx-auto px-6 pb-20">
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Email -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition p-6 text-center">
+            <div class="text-4xl mb-3">📧</div>
+            <h2 class="text-lg font-semibold">Email</h2>
+            <p class="text-base-content/70 text-sm mt-2">
+                library@email.com
+            </p>
+        </div>
+
+        <!-- Phone -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition p-6 text-center">
+            <div class="text-4xl mb-3">📞</div>
+            <h2 class="text-lg font-semibold">Phone</h2>
+            <p class="text-base-content/70 text-sm mt-2">
+                +880 1234-567890
+            </p>
+        </div>
+
+        <!-- Location -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition p-6 text-center">
+            <div class="text-4xl mb-3">📍</div>
+            <h2 class="text-lg font-semibold">Location</h2>
+            <p class="text-base-content/70 text-sm mt-2">
+                Dhaka, Bangladesh
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Optional Section (Minimal Info) -->
+<div class="bg-base-200 py-16">
+    <div class="text-center max-w-xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-4">
+            We're Always Open to Help
+        </h2>
+        <p class="text-base-content/70">
+            Whether you have a question, feedback, or just want to say hello — feel free to reach out.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="hero min-h-[80vh] bg-base-100">
+    <div class="hero min-h-[85vh] relative">
+
+    <!-- Background Image -->
+    <img 
+        src="https://images.pexels.com/photos/3747507/pexels-photo-3747507.jpeg"
+        class="absolute inset-0 w-full h-full object-cover"
+    />
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <!-- Content -->
+    <div class="hero-content text-center relative z-10 px-6">
+        <div class="max-w-2xl">
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                A World of Books Awaits You 📚
+            </h1>
+
+            <p class="py-6 text-gray-300">
+                Discover thousands of books, explore new ideas, and manage your reading journey effortlessly.
+            </p>
+
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="#books" class="btn btn-outline btn-primary">Browse Books</a>
+                <a href="#" class="btn btn-outline btn-white">Join Library</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>
+
+<!-- Categories -->
+<div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-center">Browse by Category</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+        <div class="card bg-base-200 p-6 text-center hover:scale-105 transition">
+            <h3 class="font-semibold text-lg">📖 Fiction</h3>
+        </div>
+
+        <div class="card bg-base-200 p-6 text-center hover:scale-105 transition">
+            <h3 class="font-semibold text-lg">🧠 Science</h3>
+        </div>
+
+        <div class="card bg-base-200 p-6 text-center hover:scale-105 transition">
+            <h3 class="font-semibold text-lg">💻 Technology</h3>
+        </div>
+
+        <div class="card bg-base-200 p-6 text-center hover:scale-105 transition">
+            <h3 class="font-semibold text-lg">📜 History</h3>
+        </div>
+
+    </div>
+</div>
+
+<!-- Popular Books -->
+<div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 id="books" class="text-3xl font-bold mb-8">Popular Books</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Book -->
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
+            <figure>
+                <img src="{% static 'images/book1.jpg' %}" alt="Book">
+            </figure>
+            <div class="card-body p-4">
+                <h2 class="card-title text-base">Book Title</h2>
+                <p class="text-xs text-base-content/70">Author Name</p>
+            </div>
+        </div>
+
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
+            <figure>
+                <img src="{% static 'images/book2.jpg' %}" alt="Book">
+            </figure>
+            <div class="card-body p-4">
+                <h2 class="card-title text-base">Book Title</h2>
+                <p class="text-xs text-base-content/70">Author Name</p>
+            </div>
+        </div>
+
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
+            <figure>
+                <img src="{% static 'images/book3.jpg' %}" alt="Book">
+            </figure>
+            <div class="card-body p-4">
+                <h2 class="card-title text-base">Book Title</h2>
+                <p class="text-xs text-base-content/70">Author Name</p>
+            </div>
+        </div>
+
+        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
+            <figure>
+                <img src="{% static 'images/book4.jpg' %}" alt="Book">
+            </figure>
+            <div class="card-body p-4">
+                <h2 class="card-title text-base">Book Title</h2>
+                <p class="text-xs text-base-content/70">Author Name</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Why Choose Us -->
+<div class="bg-base-200 py-16">
+    <div class="max-w-5xl mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold mb-6">Why Use Our Library?</h2>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-10">
+
+            <div>
+                <h3 class="text-xl font-semibold mb-2">📚 Huge Collection</h3>
+                <p class="text-base-content/70 text-sm">
+                    Access a wide range of books from different genres.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-2">⚡ Easy Management</h3>
+                <p class="text-base-content/70 text-sm">
+                    Borrow and return books with just a few clicks.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-2">🌙 Dark Mode Friendly</h3>
+                <p class="text-base-content/70 text-sm">
+                    Comfortable reading experience at any time.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="py-20 text-center">
+    <h2 class="text-4xl font-bold mb-4">
+        Start Your Reading Journey Today
+    </h2>
+    <p class="text-base-content/70 mb-6">
+        Join now and explore endless knowledge.
+    </p>
+    <a href="#" class="btn btn-primary btn-lg">Join Now</a>
+</div>
+
+{% endblock %}
