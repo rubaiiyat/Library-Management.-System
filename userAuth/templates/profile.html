@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="min-h-screen flex items-center justify-center px-4 py-10 bg-base-100">
+
+    <div class="w-full max-w-4xl bg-base-200 rounded-xl shadow-lg p-6">
+
+        <!-- Title -->
+        <h2 class="text-2xl font-bold text-center mb-6 text-white">
+            User Profile & Borrowed Books
+        </h2>
+
+        <!-- Profile Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 mb-8">
+
+            <div class="bg-base-100 p-4 rounded-lg shadow">
+                <p class="text-sm text-gray-500">Username</p>
+                <p class="font-semibold text-white">{{ user.username }}</p>
+            </div>
+
+            <div class="bg-base-100 p-4 rounded-lg shadow">
+                <p class="text-sm text-gray-500">Email</p>
+                <p class="font-semibold text-white">{{ user.email }}</p>
+            </div>
+
+            <div class="bg-base-100 p-4 rounded-lg shadow">
+                <p class="text-sm text-gray-500">First Name</p>
+                <p class="font-semibold text-white">{{ user.first_name }}</p>
+            </div>
+
+            <div class="bg-base-100 p-4 rounded-lg shadow">
+                <p class="text-sm text-gray-500">Last Name</p>
+                <p class="font-semibold text-white">{{ user.last_name }}</p>
+            </div>
+
+            <div class="bg-base-100 p-4 rounded-lg shadow">
+                <p class="text-sm text-gray-500">ID Card Number</p>
+                <p class="font-semibold text-white">{{ user.profile.id_card_number }}</p>
+            </div>
+
+            <div class="bg-base-100 p-4 rounded-lg shadow">
+                <p class="text-sm text-gray-500">Department</p>
+                <p class="font-semibold">{{ user.profile.department }}</p>
+            </div>
+
+            <!-- Current Balance -->
+            <div class="bg-base-100 p-4 rounded-lg shadow md:col-span-2">
+                <p class="text-sm text-gray-500">Current Balance</p>
+                <p class="font-semibold text-green-600">
+                    ৳ {{ user.account.balance }}
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Borrowed Books Table -->
+        <div class="overflow-x-auto">
+
+            <table class="table w-full bg-base-100 rounded-lg shadow">
+
+                <thead class="bg-gray-200 text-gray-700">
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Book Name</th>
+                        <th>Date & Time</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- Example Static Row -->
+                    <tr class="hover">
+                        <td>BK-101</td>
+                        <td>Clean Code</td>
+                        <td>2026-05-07 14:30</td>
+                        <td>৳ 150</td>
+                    </tr>
+
+                    <!-- Django Loop (when ready) -->
+                    {#  
+                    {% for book in borrowed_books %}
+                    <tr class="hover">
+                        <td>BK-{{ book.id }}</td>
+                        <td>{{ book.name }}</td>
+                        <td>{{ book.datetime }}</td>
+                        <td>৳ {{ book.cost }}</td>
+                    </tr>
+                    {% endfor %}
+                    #}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

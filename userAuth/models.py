@@ -10,3 +10,5 @@ class RegisterModel(models.Model):
     def __str__(self):
         return self.id_card_number
     
+
+    
