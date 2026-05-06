@@ -46,15 +46,6 @@ class UserLogin(FormView):
         return context
     
 
-class UserProfile(TemplateView):
-    template_name = "profile.html"
-
-    def get_context_data(self, **kwargs) -> dict[str]:
-        context = super().get_context_data(**kwargs)
-        context["user"] = self.request.user
-        return context
-    
-
     
 def userLogout(request):
     logout(request)

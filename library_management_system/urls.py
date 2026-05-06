@@ -10,6 +10,7 @@ urlpatterns = [
     path('about/', About.as_view(),name='about'),
     path('contact/', Contact.as_view(),name='contact'),
     path('auth/', include('userAuth.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:
