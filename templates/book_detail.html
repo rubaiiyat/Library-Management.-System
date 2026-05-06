@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Container -->
+<div class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Book Section -->
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Image -->
+        <div class="bg-base-200 p-4 rounded-2xl shadow-xl">
+            {% if book.image %}
+                <img src="{{ book.image.url }}"
+                     class="w-full h-[450px] object-cover rounded-xl" />
+            {% else %}
+                <div class="w-full h-[450px] flex items-center justify-center text-gray-500">
+                    No Image Available
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Info -->
+        <div>
+
+            <h1 class="text-4xl font-bold mb-2">
+                {{ book.name }}
+            </h1>
+
+            <p class="text-base-content/70 mb-4">
+                by <span class="text-primary font-semibold">{{ book.author }}</span>
+            </p>
+
+            <!-- Categories -->
+            <div class="flex flex-wrap gap-2 mb-6">
+                {% for category in book.category.all %}
+                    <span class="badge badge-outline">
+                        {{ category.add_category }}
+                    </span>
+                {% endfor %}
+            </div>
+
+            <!-- Description -->
+            <div class="bg-base-200 p-5 rounded-xl">
+                <h2 class="text-xl font-semibold mb-2">Description</h2>
+                <p class="text-base-content/70 leading-relaxed">
+                    {{ book.description }}
+                </p>
+            </div>
+
+            <!-- Availability -->
+            <div class="mt-6 flex items-center gap-4">
+
+                <div class="stat bg-base-200 rounded-xl p-4">
+                    <div class="stat-title text-xs">Available Copies</div>
+                    <div class="stat-value text-primary">
+                        {{ book.available_copies }}
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-8 flex gap-4 flex-wrap">
+
+                <a href="#" class="btn btn-primary">
+                    Borrow Book
+                </a>
+
+                <a href="{% url 'home' %}" class="btn btn-outline">
+                    Back to Library
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

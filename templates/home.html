@@ -68,48 +68,34 @@
 <div class="max-w-6xl mx-auto px-6 py-16">
     <h2 id="books" class="text-3xl font-bold mb-8">Popular Books</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Book -->
-        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
+        
+        {% for book in books %}
+            <!-- Book -->
+        <a href="{% url 'book_detail' book.slug %}">
+            <div class="card bg-base-200 shadow-xl hover:shadow-2xl hover:bg-base-300 transition h-96">
             <figure>
-                <img src="{% static 'images/book1.jpg' %}" alt="Book">
+                <img class="w-full h-42 object-cover" src="{{ book.image.url }}" alt="Book">
             </figure>
             <div class="card-body p-4">
-                <h2 class="card-title text-base">Book Title</h2>
-                <p class="text-xs text-base-content/70">Author Name</p>
-            </div>
-        </div>
+                <h2 class="card-title text-base">{{ book.name }}</h2>
+                <div>
+                    <p class="text-xs text-base-content/70 text-primary">{{ book.author }}</p>
+                    <p class="text-xs text-base-content/70 mt-5 mb-5">{{ book.description | truncatewords:20 }}...</p>
 
-        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
-            <figure>
-                <img src="{% static 'images/book2.jpg' %}" alt="Book">
-            </figure>
-            <div class="card-body p-4">
-                <h2 class="card-title text-base">Book Title</h2>
-                <p class="text-xs text-base-content/70">Author Name</p>
+                    
+                    {% for category in book.category.all %}
+                        <span class="badge badge-outline">{{ category.add_category }}</span>
+                    {% endfor %}
+                        
+                </div>
             </div>
         </div>
+        </a>
+        {% endfor %}
+            
 
-        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
-            <figure>
-                <img src="{% static 'images/book3.jpg' %}" alt="Book">
-            </figure>
-            <div class="card-body p-4">
-                <h2 class="card-title text-base">Book Title</h2>
-                <p class="text-xs text-base-content/70">Author Name</p>
-            </div>
-        </div>
-
-        <div class="card bg-base-200 shadow-xl hover:shadow-2xl transition">
-            <figure>
-                <img src="{% static 'images/book4.jpg' %}" alt="Book">
-            </figure>
-            <div class="card-body p-4">
-                <h2 class="card-title text-base">Book Title</h2>
-                <p class="text-xs text-base-content/70">Author Name</p>
-            </div>
-        </div>
 
     </div>
 </div>
