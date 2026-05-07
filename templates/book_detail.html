@@ -64,9 +64,18 @@
             <!-- Buttons -->
             <div class="mt-8 flex gap-4 flex-wrap">
 
-                <a href="{% url 'borrow_book' book.id %}" class="btn btn-primary">
-                    Borrow Book
-                </a>
+
+                
+                {% if book.available_copies == 0 %}
+                    <a class="btn btn-disabled btn-secondary">
+                        Out of Stock
+                    </a>
+                {% else %}
+                    <a href="{% url 'borrow_book' book.id %}" class="btn btn-primary">
+                        Borrow Book
+                    </a>
+                {% endif %}
+                    
 
                 <a href="{% url 'home' %}" class="btn btn-outline">
                     Back to Library

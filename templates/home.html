@@ -89,6 +89,10 @@
                         <span class="badge badge-outline">{{ category.add_category }}</span>
                     {% endfor %}
                         
+                    <div class="mt-4 flex items-center justify-between">
+                        <h2 class="card-title text-base">{{ book.price }}Tk.</h2>
+                        <h2 class="card-title text-base">Stock: {{ book.available_copies }}</h2>
+                    </div>
                 </div>
             </div>
         </div>

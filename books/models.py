@@ -10,6 +10,7 @@ class AddBooksModel(models.Model):
     author=models.CharField(max_length=100)
     description=models.TextField(max_length=1000)
     category=models.ManyToManyField(CategoryModel)
+    price=models.DecimalField(max_digits=5, decimal_places=2, blank=True,null=True)
     available_copies=models.IntegerField(default=1)
 
 
