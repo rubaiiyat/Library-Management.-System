@@ -11,6 +11,7 @@ urlpatterns = [
     path('contact/', Contact.as_view(),name='contact'),
     path('auth/', include('userAuth.urls')),
     path('accounts/', include('accounts.urls')),
+    path('balance/', include('balance.urls')),
 ]
 
 if settings.DEBUG:

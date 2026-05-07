@@ -36,23 +36,29 @@
 
             <div class="bg-base-100 p-4 rounded-lg shadow">
                 <p class="text-sm text-gray-500">ID Card Number</p>
-                <p class="font-semibold text-white">{{ user.profile.id_card_number }}</p>
+                <p class="font-semibold text-white">{{ register.id_card_number }}</p>
             </div>
 
             <div class="bg-base-100 p-4 rounded-lg shadow">
                 <p class="text-sm text-gray-500">Department</p>
-                <p class="font-semibold">{{ user.profile.department }}</p>
+                <p class="font-semibold text-white">{{ register.department }}</p>
             </div>
 
             <!-- Current Balance -->
             <div class="bg-base-100 p-4 rounded-lg shadow md:col-span-2">
                 <p class="text-sm text-gray-500">Current Balance</p>
                 <p class="font-semibold text-green-600">
-                    ৳ {{ user.account.balance }}
+                    ৳ {{ balance.balance }}
                 </p>
             </div>
 
+           
+
         </div>
+
+        <a href="{% url 'add_balance' %}" class="btn btn-info">
+                ADD BALANCE
+        </a>
 
         <!-- Borrowed Books Table -->
         <div class="overflow-x-auto">
