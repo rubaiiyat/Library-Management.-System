@@ -12,6 +12,7 @@ urlpatterns = [
     path('auth/', include('userAuth.urls')),
     path('accounts/', include('accounts.urls')),
     path('balance/', include('balance.urls')),
+    path('borrow/', include('borrow.urls')),
 ]
 
 if settings.DEBUG:

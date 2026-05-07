@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'userAuth',
     'accounts',
     'balance',
+    'borrow',
 ]
 
 MIDDLEWARE = [
