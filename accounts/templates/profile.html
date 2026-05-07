@@ -70,31 +70,36 @@
                         <th>Book ID</th>
                         <th>Book Name</th>
                         <th>Date & Time</th>
-                        <th>Cost</th>
+                        <th>Price</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
 
-                    <!-- Example Static Row -->
-                    <tr class="hover">
-                        <td>BK-101</td>
-                        <td>Clean Code</td>
-                        <td>2026-05-07 14:30</td>
-                        <td>৳ 150</td>
-                    </tr>
 
                     <!-- Django Loop (when ready) -->
-                    {#  
-                    {% for book in borrowed_books %}
-                    <tr class="hover">
-                        <td>BK-{{ book.id }}</td>
-                        <td>{{ book.name }}</td>
-                        <td>{{ book.datetime }}</td>
-                        <td>৳ {{ book.cost }}</td>
-                    </tr>
+                    
+                    
+
+                        
+                        {% for book in borrow %}
+                            <tr class="hover">
+                                <td>BK-{{ book.id }}</td>
+                                <td>{{ book.book.name }}</td>
+                                <td>{{ book.date}}</td>
+                                <td>৳ {{ book.book.price }}</td>
+                                <td>
+                                    <a href="{% url 'back_book' book.id %}" class="btn btn-warning btn-sm">
+                                        Return
+                                    </a>
+                                </td>
+                            </tr>
+                        
+                            
+                    
                     {% endfor %}
-                    #}
+                    
 
                 </tbody>
 

@@ -11,19 +11,25 @@ class BorrowBook(View):
     def get(self, request, id):
         book=AddBooksModel.objects.get(pk=id)
 
-        borrow_obj,created=BorrowBookModel.objects.get_or_create(
-            user=self.request.user
-        )
-
         balance_obj,create=BalanceModel.objects.get_or_create(
             user=self.request.user
         )
 
-        if borrow_obj.book.filter(id=book.id).exists():
-            messages.warning(request,'You have already borrowd this book')
+        if BorrowBookModel.objects.filter(user=self.request.user, book=book).exists():
+            messages.warning(request, 'You have already borrowed this book')
             return redirect('book_detail', slug=book.slug)
         
-        borrow_obj.book.add(book)
+        if balance_obj.balance<book.price:
+            messages.warning(request, 'You have not enough money')
+            return redirect('book_detail', slug=book.slug)   
+
+        BorrowBookModel.objects.create(
+            user=self.request.user,
+            book=book,
+            orginal_id=book.id
+        )
+
+        
 
         book.available_copies-=1
         balance_obj.balance-=book.price
