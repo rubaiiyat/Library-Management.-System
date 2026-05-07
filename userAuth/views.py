@@ -7,23 +7,33 @@ from userAuth.models import RegisterModel
 from django.contrib.auth import login,logout
 
 class Register(FormView):
-    template_name='form.html'
-    form_class=RegisterForm
-    success_url=reverse_lazy('login')
+    template_name = 'form.html'
+    form_class = RegisterForm
+    success_url = reverse_lazy('user_login')
 
     def form_valid(self, form):
-        user=form.save()
+
+        id_card = form.cleaned_data['id_card_number']
+
+        if RegisterModel.objects.filter(id_card_number=id_card).exists():
+
+            messages.error(self.request, 'ID Card Number already exists')
+
+            return self.form_invalid(form)
+
+        user = form.save()
+
         RegisterModel.objects.create(
             user=user,
-            id_card_number=form.cleaned_data['id_card_number'],
+            id_card_number=id_card,
             department=form.cleaned_data['department'],
         )
 
-        messages.success(self.request,'Account created successfully')
-        return super().form_valid(form)
-    
+        messages.success(self.request, 'Account created successfully')
 
-    def get_context_data(self, **kwargs) -> dict[str]:
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["page"] = 'REGISTER'
         return context

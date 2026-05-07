@@ -1,12 +1,13 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView,View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from userAuth.models import RegisterModel
 from balance.models import BalanceModel
 from borrow.models import BorrowBookModel
 from books.models import AddBooksModel
 # Create your views here.
-class UserProfile(TemplateView):
+class UserProfile(LoginRequiredMixin,TemplateView):
     template_name = "profile.html"
 
     def get_context_data(self, **kwargs) -> dict[str]:
@@ -23,7 +24,7 @@ class UserProfile(TemplateView):
         
         return context
     
-class BackBook(View):
+class BackBook(LoginRequiredMixin,View):
 
     def get(self,request,id):
         book=BorrowBookModel.objects.get(pk=id)
